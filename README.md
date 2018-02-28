@@ -82,7 +82,7 @@ TODO
 TODO
 
 ## Costs
-[Costs](./COSTS)
+[Costs](./COSTS.md)
 
 ## Supported browsers
 
