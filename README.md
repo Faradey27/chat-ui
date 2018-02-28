@@ -17,6 +17,7 @@
   - [Styling](#styling)
   - [Performance and bundle size](#performance-and-bundle-size)
   - [Server side rendering](#server-side-rendering)
+- [Costs](#costs)
 - [Supported Browsers](#supported-browsers)
 - [License](#license)
 
@@ -79,6 +80,9 @@ TODO
 ### Server side rendering
 
 TODO
+
+## Costs
+[Costs](./COSTS)
 
 ## Supported browsers
 
