@@ -6,7 +6,7 @@
 - [Where to find demo](http://faradey27.github.io/chat-ui)
 - [Quickstart](#quickstart)
   - [Prerequisites](#prerequisites)
-  - [How to run localy](#how-to-run)
+  - [How to run localy](#how-to-run-localy)
 - [Commands](#commands)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
@@ -82,4 +82,5 @@ TODO
 
 ## Supported browsers
 
-## Cicense
+## License
+[Apache License 2.0](./LICENSE)
