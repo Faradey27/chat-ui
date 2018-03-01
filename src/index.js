@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App';
+import Chat from './containers/Chat';
 import registerServiceWorker from './services/pwa/registerServiceWorker';
 
 import './index.css';
@@ -10,7 +10,7 @@ import './index.css';
   we mount our root component - App on dom node.
 */
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Chat />, document.getElementById('root'));
 
 /*
   As we want to be PWA app, we need to become offline friendly, for this reason we register service worker

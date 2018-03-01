@@ -171,7 +171,7 @@ For performance monitoring I am using:
  - chrome audits
 
 For bundle size:
- - webpack-bundle-analyzer
+ - webpack-bundle-analyzer(or source-map-explorer)
  - make sure to use gziped version of builds
  - http2 push(maybe in future)
 
