@@ -1,13 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Chat from './../index';
+import withRedux from './../../../../__test__/helpers/withRedux';
 
 class ChatDriver {
   component = null;
 
   when = {
     render: (props) => {
-      this.component = mount(<Chat />);
+      this.component = withRedux(<Chat />);
       return this;
     }
   }
