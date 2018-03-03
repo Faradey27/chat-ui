@@ -27,18 +27,19 @@
     }
   },
   "dependencies": {
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.1",
-    "react-test-renderer": "^16.2.0",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
+    "socket.io-client": "^2.0.4",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "react-test-renderer": "^16.2.0",
+    "redux-logger": "^3.0.6",
     "chromedriver": "^2.35.0",
     "protractor": "^5.3.0",
     "redux-mock-store": "^1.5.1",

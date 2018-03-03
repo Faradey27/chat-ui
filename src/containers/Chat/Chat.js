@@ -1,11 +1,17 @@
 import React from 'react';
-import { func } from 'prop-types';
+import { func, instanceOf } from 'prop-types';
 import { connect } from 'react-redux';
 import { addMessage } from './../../data/messages/messagesActions';
+import SocketConnector from '../../services/SocketConnector';
 
 class Chat extends React.Component {
   static propTypes = {
-    addMessage: func, // dispatched action from react-redux
+    socket: instanceOf(SocketConnector).isRequired,
+    addMessage: func.isRequired, // dispatched action from react-redux
+  }
+
+  componentDidMount() {
+    this.props.socket.connect({onMessage: this.props.addMessage})
   }
 
   render() {

@@ -23,7 +23,7 @@ describe('Messages actions', () => {
     };
     const onMessage = jest.fn();
     const connector = new SocketConnector({eventName: 'some', socket: mockedSocket});
-    connector.connect(onMessage);
+    connector.connect({onMessage});
     connector.emitMessage({id: '123'});
     expect(mockedSocket.emit).toBeCalledWith('some', {id: '123'})
   });
@@ -35,7 +35,7 @@ describe('Messages actions', () => {
     };
     const onMessage = jest.fn();
     const connector = new SocketConnector({eventName: 'some', socket: mockedSocket});
-    connector.connect(onMessage);
+    connector.connect({onMessage});
     const callback = mockedSocket.on.mock.calls[1][1];
     callback({id: '123'}); // we emulate message receive
     expect(onMessage).toBeCalledWith({id: '123'})
@@ -48,7 +48,7 @@ describe('Messages actions', () => {
     };
     const onMessage = jest.fn();
     const connector = new SocketConnector({eventName: 'some', socket: mockedSocket});
-    connector.connect(onMessage);
+    connector.connect({onMessage});
     const callback = mockedSocket.on.mock.calls[0][1];
     expect(connector.connected).toBeFalsy()
     callback(); // we emulate message receive
@@ -62,7 +62,7 @@ describe('Messages actions', () => {
     };
     const onMessage = jest.fn();
     const connector = new SocketConnector({eventName: 'some', socket: mockedSocket});
-    connector.connect(onMessage);
+    connector.connect({onMessage});
     const callbackForConnect = mockedSocket.on.mock.calls[0][1];
     callbackForConnect(); // we emulate message receive
     expect(connector.connected).toBeTruthy()

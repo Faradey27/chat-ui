@@ -8,7 +8,7 @@ class SocketConnector {
     this.socket = socket;
   }
 
-  connect = (onMessage) => {
+  connect = ({onMessage}) => {
     this.socket.on("connect", () => {
       console.info("connected to chat server!");
       this.connected = true;
