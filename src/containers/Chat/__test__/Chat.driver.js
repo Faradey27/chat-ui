@@ -18,12 +18,31 @@ class ChatDriver {
     render: (props) => {
       this.component = withRedux(<Chat socket={this.socket} {...props}/>);
       return this;
+    },
+    messageEntered: (text) => {
+      this.get.messageTextArea().simulate('change', {target: {value: text}})
+      return this;
+    },
+    nameEntered: (text) => {
+      this.get.usernameInput().simulate('change', {target: {value: text}})
+      return this;
+    },
+    sendMessage: () => {
+      this.get.button().simulate('click')
+      return this;
     }
   }
 
   is = {
     ok: () => this.findByDataHook('chat').length >= 1,
     socketConnected: () => socketIO.on.mock.calls[0][0] === 'connect'
+  }
+
+  get = {
+    emitMockedFunc: () => socketIO.emit,
+    button: () => this.findByDataHook('send-button-el'),
+    messageTextArea: () => this.findByDataHook('message-text-field-textarea'),
+    usernameInput: () => this.findByDataHook('username-text-field-input'),
   }
 
   findByDataHook = (name) => this.component.find(`[data-hook='${name}']`)

@@ -8,3 +8,12 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
+
+window.localStorage = {
+  setItem: function(key, value) {
+    this[key] = value;
+  },
+  getItem: function(key, value) {
+    return this[key];
+  },
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import withRedux from './../../../../__test__/helpers/withRedux';
 import MessageCreationArea from './../index';
 
 const user = {
@@ -10,15 +10,20 @@ const user = {
 class MessageCreationAreaDriver {
   component = null;
 
+  given = {
+    initialStore: (store) => this.initialStore = store,
+  }
+
   when = {
     render: (props) => {
-      this.component = mount(
+      this.component = withRedux(
         <MessageCreationArea
           user={user}
           onUsernameChange={jest.fn()}
           onMessageAdd={jest.fn()}
           {...props}
-        />
+        />,
+        this.initialStore
       );
       return this;
     },

@@ -14,8 +14,9 @@
       "src/**/*.js",
       "!src/index.js",
       "!src/services/pwa/registerServiceWorker.js",
-      "!src/data/store/configureStore.prod.js",
-      "!src/data/store/configureStore.js"
+      "!src/data/store/configureStore.dev.js",
+      "!src/data/store/configureStore.js",
+      "!src/setupTests.js"
     ],
     "coverageThreshold": {
       "global": {

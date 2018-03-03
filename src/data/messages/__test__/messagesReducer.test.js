@@ -1,7 +1,7 @@
 import { ADD_MESSAGE } from './../messagesActions';
 import reducer from './../messagesReducer';
 
-describe('Messages actions', () => {
+describe('Messages reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual([])
   });

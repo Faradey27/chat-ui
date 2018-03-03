@@ -7,7 +7,7 @@ import SendButton from './../../components/SendButton';
 class MessageCreationAreaView extends React.Component {
   static propTypes = {
     avatar: string,
-    name: string,
+    username: string,
     onMessageAdd: func,
     onMessageChange: func,
     onUsernameChange: func

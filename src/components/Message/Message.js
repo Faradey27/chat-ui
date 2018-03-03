@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, shape } from 'prop-types';
+import { string, shape, number } from 'prop-types';
 import Avatar from './../Avatar';
 import MessageUsername from './../MessageUsername';
 import MessageText from './../MessageText';
@@ -13,7 +13,7 @@ class Message extends React.Component {
         avatar: string,
       }).isRequired,
       text: string,
-      date: string,
+      date: number,
     }),
   }
 
@@ -21,7 +21,7 @@ class Message extends React.Component {
     const { message } = this.props;
     return (
       <div data-hook="message">
-        <Avatar src={message.user.avatar}/>
+        <Avatar avatar={message.user.avatar}/>
         <MessageUsername username={message.user.name}/>
         <MessageText text={message.text}/>
         <MessageDate text={message.date}/>

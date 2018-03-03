@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addMessage } from './../../data/messages/messagesActions';
 import SocketConnector from '../../services/SocketConnector';
 import MessageCreationArea from './../MessageCreationArea';
+import MessageListArea from './../MessageListArea';
 
 class Chat extends React.Component {
   static propTypes = {
@@ -16,19 +17,12 @@ class Chat extends React.Component {
   }
 
   handleMessageAdd = (message) => this.props.socket.emitMessage(message)
-  handleUserNameChange = (username) => this.props.setUsername(username)
 
   render() {
     return (
       <div data-hook="chat">
-        <MessageCreationArea
-          user={{
-            name: '',
-            avatar: '',
-          }}
-          onUsernameChange={this.handleUserNameChange}
-          onMessageAdd={this.handleMessageAdd}
-        />
+        <MessageListArea />
+        <MessageCreationArea onMessageAdd={this.handleMessageAdd}/>
       </div>
     );
   }

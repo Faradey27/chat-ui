@@ -14,7 +14,7 @@ class UsernameTextField extends React.Component {
   render() {
     return (
       <div data-hook="username-text-field">
-        <Avatar src={this.props.avatar}/>
+        <Avatar avatar={this.props.avatar}/>
         <input
           data-hook="username-text-field-input"
           value={this.props.username}
