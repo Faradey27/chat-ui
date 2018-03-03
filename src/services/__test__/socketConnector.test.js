@@ -1,6 +1,6 @@
 import SocketConnector from './../SocketConnector';
 
-describe('Messages actions', () => {
+describe('SocketConnector', () => {
   it('should create socket connector', () => {
     const mockedSocket = {
       on: jest.fn(),
