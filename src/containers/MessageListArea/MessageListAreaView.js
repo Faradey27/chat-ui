@@ -1,5 +1,5 @@
 import React from 'react';
-import { array } from 'prop-types';
+import { array, shape, string } from 'prop-types';
 import { css } from 'emotion';
 
 import Message from './../../components/Message';
@@ -33,6 +33,9 @@ const scrollToTheBottom = (node) => {
 class MessageListAreaView extends React.Component {
   static propTypes = {
     messages: array,
+    user: shape({
+      name: string,
+    }),
   }
 
   componentDidUpdate(prevProps) {
@@ -54,7 +57,13 @@ class MessageListAreaView extends React.Component {
       );
     }
 
-    return this.props.messages.map((message) => <Message key={message.id} message={message}/>);
+    return this.props.messages.map((message) => (
+      <Message
+        key={message.id}
+        message={message}
+        isOwnMessage={message.user.name === this.props.user.name}
+      />
+    ));
   }
 
   render() {

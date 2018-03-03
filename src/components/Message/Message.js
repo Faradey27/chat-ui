@@ -1,10 +1,13 @@
 import React from 'react';
-import { string, shape, number } from 'prop-types';
+import { string, shape, number, bool } from 'prop-types';
 import { css } from 'emotion';
 import Avatar from './../Avatar';
 import MessageUsername from './../MessageUsername';
 import MessageText from './../MessageText';
 import MessageDate from './../MessageDate';
+
+const OWN_MESSAGE_COLOR = '#dbf4fd';
+const OTHER_MESSAGE_COLOR = '#f0f4f8';
 
 const messageStyles = css`
   margin-bottom: 25px;
@@ -23,6 +26,8 @@ const col2Styles = css`
   margin-left: 10px;
   margin-right: 10px;
   width: 100%;
+  border-radius: 10px;
+  padding: 6px;
 `
 
 const col3Styles = css`
@@ -32,6 +37,7 @@ const col3Styles = css`
 
 class Message extends React.Component {
   static propTypes = {
+    isOwnMessage: bool,
     message: shape({
       user: shape({
         name: string,
@@ -52,7 +58,11 @@ class Message extends React.Component {
         <div className={col1Styles}>
           <Avatar avatar={message.user.avatar}/>
         </div>
-        <div className={col2Styles}>
+        <div
+          data-hook="message-text-with-background"
+          className={col2Styles}
+          style={{backgroundColor: this.props.isOwnMessage ? OWN_MESSAGE_COLOR : OTHER_MESSAGE_COLOR}}
+        >
           <MessageUsername username={message.user.name}/>
           <MessageText text={message.text}/>
         </div>

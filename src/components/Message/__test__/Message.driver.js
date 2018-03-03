@@ -16,6 +16,10 @@ class MessageDriver {
     ok: () => this.findByDataHook('message').length >= 1,
   }
 
+  get = {
+    messageBackground: () => this.findByDataHook('message-text-with-background').html()
+  }
+
   findByDataHook = (name) => this.component.find(`[data-hook='${name}']`)
 }
 
