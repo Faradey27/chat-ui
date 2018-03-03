@@ -14,6 +14,7 @@ const messageAreaStyles = css`
 
   @media (max-width: 570px) {
     flex-wrap: wrap;
+    height: 160px;
   }
 `;
 

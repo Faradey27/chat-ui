@@ -12,7 +12,7 @@ const messageListStyles = css`
   padding-right: 30px;
 `;
 
-const emptyStyle = css`
+const noMessagesWrapperStyle = css`
   display: flex;
   height: 100%;
   width: 100%;
@@ -22,22 +22,33 @@ const emptyStyle = css`
   flex-wrap: wrap;
 `;
 
-const emptyMessageStyle = css`
+const noMessagesSubtitleStyle = css`
   font-size: 15px;
 `;
+
+const scrollToTheBottom = (node) => {
+  node.scrollTo(0, node.scrollHeight);
+}
 
 class MessageListAreaView extends React.Component {
   static propTypes = {
     messages: array,
   }
 
+  componentDidUpdate(prevProps) {
+    // after new message appeared, we want to scroll down
+    if (prevProps.messages.length !== this.props.messages.length) {
+      scrollToTheBottom(this.listNode);
+    }
+  }
+
   renderMessages() {
     if (!this.props.messages.length) {
       return (
-        <div className={emptyStyle}>
+        <div className={noMessagesWrapperStyle}>
           <div style={{textAlign: 'center'}}>
             <p>No messages</p>
-            <p className={emptyMessageStyle}>Try to type and send something</p>
+            <p className={noMessagesSubtitleStyle}>Try to type and send something</p>
           </div>
         </div>
       );
@@ -49,6 +60,7 @@ class MessageListAreaView extends React.Component {
   render() {
     return (
       <div
+        ref={(node) => this.listNode = node}
         className={messageListStyles}
         data-hook="message-list-area"
       >

@@ -1,6 +1,7 @@
 import React from 'react';
 import { number } from 'prop-types';
 import moment from 'moment';
+import {grey500} from 'material-ui/styles/colors';
 
 class MessageDate extends React.Component {
   static propTypes = {
@@ -9,7 +10,10 @@ class MessageDate extends React.Component {
 
   render() {
     return (
-      <span data-hook="message-date">
+      <span
+        style={{color: grey500, fontSize: 12}}
+        data-hook="message-date"
+      >
         {moment(this.props.date).format('HH:MM')}
       </span>
     );
