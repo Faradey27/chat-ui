@@ -1,4 +1,5 @@
 import SocketConnector from './../SocketConnector';
+import { CHAT_IDENTEFICATOR } from './../../config';
 
 describe('SocketConnector', () => {
   it('should create socket connector', () => {
@@ -28,7 +29,17 @@ describe('SocketConnector', () => {
     expect(mockedSocket.emit).toBeCalledWith('some', {id: '123'})
   });
 
-  it('should call onMessage callback when receiving message', () => {
+  it('should call onMessage callback when receiving valid message', () => {
+    const message = {
+      id: '123',
+      text: 'text',
+      date: Date.now(),
+      user: {
+        name: '1',
+        avatar: '2',
+      },
+      identificator: CHAT_IDENTEFICATOR
+    }
     const mockedSocket = {
       on: jest.fn(),
       emit: jest.fn(),
@@ -37,8 +48,56 @@ describe('SocketConnector', () => {
     const connector = new SocketConnector({eventName: 'some', socket: mockedSocket});
     connector.connect({onMessage});
     const callback = mockedSocket.on.mock.calls[1][1];
-    callback({id: '123'}); // we emulate message receive
-    expect(onMessage).toBeCalledWith({id: '123'})
+
+    callback(message); // we emulate message receive
+    expect(onMessage).toBeCalledWith(message)
+  });
+
+  it('should not call onMessage callback when receiving invalid message', () => {
+    const message = {
+      text: 'text',
+      date: Date.now(),
+      user: {
+        name: '1',
+        avatar: '2',
+      },
+      identificator: CHAT_IDENTEFICATOR
+    }
+    const mockedSocket = {
+      on: jest.fn(),
+      emit: jest.fn(),
+    };
+    const onMessage = jest.fn();
+    const connector = new SocketConnector({eventName: 'some', socket: mockedSocket});
+    connector.connect({onMessage});
+    const callback = mockedSocket.on.mock.calls[1][1];
+
+    callback(message); // we emulate message receive
+    expect(onMessage).not.toBeCalled()
+  });
+
+  it('should not call onMessage callback when receiving unauthorized message', () => {
+    const message = {
+      id: '123',
+      text: 'text',
+      date: Date.now(),
+      user: {
+        name: '1',
+        avatar: '2',
+      },
+      identificator: 'some_bad_identificator'
+    }
+    const mockedSocket = {
+      on: jest.fn(),
+      emit: jest.fn(),
+    };
+    const onMessage = jest.fn();
+    const connector = new SocketConnector({eventName: 'some', socket: mockedSocket});
+    connector.connect({onMessage});
+    const callback = mockedSocket.on.mock.calls[1][1];
+
+    callback(message); // we emulate message receive
+    expect(onMessage).not.toBeCalled()
   });
 
   it('should be marked as connected, after connection established', () => {
