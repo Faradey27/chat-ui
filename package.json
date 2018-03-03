@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "CI=true npm run test:unit && npm run test:e2e",
-    "test:unit": "react-scripts test --env=jsdom --coverage",
+    "test:unit": "react-scripts test --env=jsdom",
     "test:e2e": "webdriver-manager update && protractor"
   },
   "jest": {

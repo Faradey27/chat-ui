@@ -2,7 +2,7 @@
 
 ## Design
 Expected: 2 hours
-Reality: ? hours
+Reality: 1.2 hours
 
 ## Infra setup
 Expected: 1 hours
