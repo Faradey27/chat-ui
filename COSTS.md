@@ -6,7 +6,7 @@ Reality: 1.2 hours
 
 ## Infra setup
 Expected: 1 hours
-Reality: ? hours
+Reality: 1.5 hours
 
 ## Develoment(with tests, TDD)
 Expected: 5 hours

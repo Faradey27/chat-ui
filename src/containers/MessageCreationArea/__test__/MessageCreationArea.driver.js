@@ -1,5 +1,6 @@
 import React from 'react';
 import withRedux from './../../../../__test__/helpers/withRedux';
+import { MuiThemeProvider } from 'material-ui/styles';
 import MessageCreationArea from './../index';
 
 const user = {
@@ -17,12 +18,14 @@ class MessageCreationAreaDriver {
   when = {
     render: (props) => {
       this.component = withRedux(
-        <MessageCreationArea
-          user={user}
-          onUsernameChange={jest.fn()}
-          onMessageAdd={jest.fn()}
-          {...props}
-        />,
+        <MuiThemeProvider>
+          <MessageCreationArea
+            user={user}
+            onUsernameChange={jest.fn()}
+            onMessageAdd={jest.fn()}
+            {...props}
+          />
+        </MuiThemeProvider>,
         this.initialStore
       );
       return this;

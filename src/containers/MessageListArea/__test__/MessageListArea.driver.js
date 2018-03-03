@@ -1,7 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import MessageListArea from './../index';
+import { MuiThemeProvider } from 'material-ui/styles';
 import withRedux from './../../../../__test__/helpers/withRedux';
+import MessageListArea from './../index';
 
 class MessageListAreaDriver {
   component = null;
@@ -14,9 +14,11 @@ class MessageListAreaDriver {
   when = {
     render: (props) => {
       this.component = withRedux(
-        <MessageListArea
-          {...props}
-        />,
+        <MuiThemeProvider>
+          <MessageListArea
+            {...props}
+          />
+        </MuiThemeProvider>,
         this.initialStore
       );
       return this;

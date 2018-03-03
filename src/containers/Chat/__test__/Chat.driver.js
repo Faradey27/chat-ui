@@ -1,4 +1,5 @@
 import React from 'react';
+import { MuiThemeProvider } from 'material-ui/styles';
 import Chat from './../index';
 import SocketConnector from './../../../services/SocketConnector';
 import withRedux from './../../../../__test__/helpers/withRedux';
@@ -16,7 +17,11 @@ class ChatDriver {
 
   when = {
     render: (props) => {
-      this.component = withRedux(<Chat socket={this.socket} {...props}/>);
+      this.component = withRedux(
+        <MuiThemeProvider>
+          <Chat socket={this.socket} {...props}/>
+        </MuiThemeProvider>
+      );
       return this;
     },
     messageEntered: (text) => {

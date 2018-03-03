@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import withMaterial from './../../../../__test__/helpers/withMaterial';
 import Avatar from './../index';
 
 class AvatarDriver {
@@ -7,7 +7,7 @@ class AvatarDriver {
 
   when = {
     render: (props) => {
-      this.component = mount(<Avatar {...props}/>);
+      this.component = withMaterial(<Avatar {...props}/>);
       return this;
     },
   }

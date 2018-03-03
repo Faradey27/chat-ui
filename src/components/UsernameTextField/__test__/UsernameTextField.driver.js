@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import withMaterial from './../../../../__test__/helpers/withMaterial';
 import UsernameTextField from './../index';
 
 class UsernameTextFieldDriver {
@@ -7,7 +7,7 @@ class UsernameTextFieldDriver {
 
   when = {
     render: (props) => {
-      this.component = mount(<UsernameTextField onUsernameChange={jest.fn()} {...props}/>);
+      this.component = withMaterial(<UsernameTextField onUsernameChange={jest.fn()} {...props}/>);
       return this;
     },
     typed: (text) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import withMaterial from './../../../../__test__/helpers/withMaterial';
 import Message from './../index';
 
 class MessageDriver {
@@ -7,7 +7,7 @@ class MessageDriver {
 
   when = {
     render: (props) => {
-      this.component = mount(<Message message={{user: {name: '', avatar: ''}}} {...props}/>);
+      this.component = withMaterial(<Message message={{user: {name: '', avatar: ''}}} {...props}/>);
       return this;
     },
   }
