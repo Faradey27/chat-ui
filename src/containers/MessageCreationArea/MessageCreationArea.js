@@ -38,16 +38,14 @@ class MessageCreationArea extends React.Component {
 
   render() {
     return (
-      <div data-hook="message-creation-area">
-        <MessageCreationAreaView
-          avatar={this.props.user.avatar}
-          messageText={this.state.messageText}
-          username={this.props.user.name}
-          onMessageAdd={this.handleMessageAdd}
-          onMessageChange={this.handleMessageChange}
-          onUsernameChange={this.props.onUsernameChange}
-        />
-      </div>
+      <MessageCreationAreaView
+        avatar={this.props.user.avatar}
+        messageText={this.state.messageText}
+        username={this.props.user.name}
+        onMessageAdd={this.handleMessageAdd}
+        onMessageChange={this.handleMessageChange}
+        onUsernameChange={this.props.onUsernameChange}
+      />
     );
   }
 }

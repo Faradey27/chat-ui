@@ -1,5 +1,6 @@
 import React from 'react';
 import { string, func } from 'prop-types';
+import Avatar from './../Avatar';
 
 class UsernameTextField extends React.Component {
   static propTypes = {
@@ -13,10 +14,7 @@ class UsernameTextField extends React.Component {
   render() {
     return (
       <div data-hook="username-text-field">
-        <img
-          alt="avatar"
-          src={this.props.avatar}
-        />
+        <Avatar src={this.props.avatar}/>
         <input
           data-hook="username-text-field-input"
           value={this.props.username}

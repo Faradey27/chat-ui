@@ -33,7 +33,7 @@ class MessageCreationAreaDriver {
   }
 
   is = {
-    ok: () => this.findByDataHook('send-button').length >= 1,
+    ok: () => this.findByDataHook('message-creation-area').length >= 1,
   }
 
   get = {
