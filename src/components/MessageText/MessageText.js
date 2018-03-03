@@ -1,5 +1,15 @@
 import React from 'react';
 import { string } from 'prop-types';
+import { css } from 'emotion';
+
+const messageTextStyles = css`
+  display: inline-block;
+  min-width: 200px;
+  font-weight: 300;
+  font-size: 16px;
+  width: 100%;
+  word-break: break-word;
+`;
 
 class MessageText extends React.Component {
   static propTypes = {
@@ -8,9 +18,12 @@ class MessageText extends React.Component {
 
   render() {
     return (
-      <span data-hook="message-text">
+      <div
+        className={messageTextStyles}
+        data-hook="message-text"
+      >
         {this.props.text}
-      </span>
+      </div>
     );
   }
 }

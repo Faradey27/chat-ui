@@ -1,10 +1,20 @@
 import React from 'react';
 import { func, instanceOf } from 'prop-types';
 import { connect } from 'react-redux';
+import AppBar from 'material-ui/AppBar';
+import { grey50 } from 'material-ui/styles/colors';
+import { css } from 'emotion';
 import { addMessage } from './../../data/messages/messagesActions';
 import SocketConnector from '../../services/SocketConnector';
 import MessageCreationArea from './../MessageCreationArea';
 import MessageListArea from './../MessageListArea';
+import Column from './../../components/Column';
+
+const chatStyles = css`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
 
 class Chat extends React.Component {
   static propTypes = {
@@ -20,9 +30,20 @@ class Chat extends React.Component {
 
   render() {
     return (
-      <div data-hook="chat">
-        <MessageListArea />
-        <MessageCreationArea onMessageAdd={this.handleMessageAdd}/>
+      <div
+        className={chatStyles}
+        data-hook="chat"
+      >
+        <AppBar
+          titleStyle={{color: 'initial'}}
+          style={{ backgroundColor: grey50 }}
+          iconElementLeft={<span/>}
+          title="Chat UI"
+        />
+        <Column>
+          <MessageListArea />
+          <MessageCreationArea onMessageAdd={this.handleMessageAdd}/>
+        </Column>
       </div>
     );
   }

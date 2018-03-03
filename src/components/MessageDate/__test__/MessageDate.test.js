@@ -13,7 +13,7 @@ describe('MessageDate', () => {
   });
 
   it('renders with correct date', () => {
-    expect(driver.when.render({date: 123}).get.text()).toBe('123');
+    expect(driver.when.render({date: 1520115176550}).get.text()).toBe('00:03');
   });
 });
 

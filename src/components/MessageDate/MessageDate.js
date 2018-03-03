@@ -1,5 +1,6 @@
 import React from 'react';
 import { number } from 'prop-types';
+import moment from 'moment';
 
 class MessageDate extends React.Component {
   static propTypes = {
@@ -9,7 +10,7 @@ class MessageDate extends React.Component {
   render() {
     return (
       <span data-hook="message-date">
-        {this.props.date}
+        {moment(this.props.date).format('HH:MM')}
       </span>
     );
   }

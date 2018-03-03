@@ -35,7 +35,7 @@ class MessageCreationAreaDriver {
       return this;
     },
     sendMessage: () => {
-      this.get.button().simulate('click')
+      this.get.form().simulate('submit')
       return this;
     }
   }
@@ -45,7 +45,7 @@ class MessageCreationAreaDriver {
   }
 
   get = {
-    button: () => this.findByDataHook('send-button-el'),
+    form: () => this.component.find('form'),
     messageTextArea: () => this.findByDataHook('message-text-field-textarea'),
   }
 

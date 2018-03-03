@@ -1,5 +1,13 @@
 import React from 'react';
 import { string } from 'prop-types';
+import { css } from 'emotion';
+import {grey900} from 'material-ui/styles/colors';
+
+const usernameStyle = css`
+  font-size: 15px;
+  font-weight: 900;
+  color: ${grey900}
+`;
 
 class MessageUsername extends React.Component {
   static propTypes = {
@@ -8,7 +16,10 @@ class MessageUsername extends React.Component {
 
   render() {
     return (
-      <span data-hook="message-username">
+      <span
+        className={usernameStyle}
+        data-hook="message-username"
+      >
         {this.props.username}
       </span>
     );

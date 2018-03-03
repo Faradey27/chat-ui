@@ -14,11 +14,11 @@ describe('MessageListArea', () => {
 
   it('renders list of messages', () => {
     const messages = [
-      {id: '1', text: '123', user: {avatar: '', name: 'user1'}},
-      {id: '2', text: '456', user: {avatar: '', name: 'user2'}},
+      {id: '1', text: '123', date: 1520115176550, user: {avatar: '', name: 'user1'}},
+      {id: '2', text: '456', date: 1520115176550, user: {avatar: '', name: 'user2'}},
     ];
     driver.given.initialStore({messages});
-    expect(driver.when.render().get.text()).toBe('user1123user2456');
+    expect(driver.when.render().get.text()).toBe('user112300:03user245600:03');
   });
 });
 

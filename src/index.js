@@ -19,7 +19,7 @@ const socket = new SocketConnector({eventName: 'spotim/chat', socket: socketIO})
 // setuped redux related things
 const storage = new StorageConnector({appName: 'chat-ui-user', storage: window.localStorage}); // localStorage or session storage
 const savedUser = storage.getItem('store.user');
-const preloadedState = savedUser ? {user: savedUser} : undefined;
+const preloadedState = {user: savedUser || {name: 'Anonymous', avatar: ''}};
 const reduxStore = configureStore(preloadedState, storage);
 
 

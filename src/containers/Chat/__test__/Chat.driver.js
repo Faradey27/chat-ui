@@ -33,7 +33,7 @@ class ChatDriver {
       return this;
     },
     sendMessage: () => {
-      this.get.button().simulate('click')
+      this.get.form().simulate('submit')
       return this;
     }
   }
@@ -45,7 +45,7 @@ class ChatDriver {
 
   get = {
     emitMockedFunc: () => socketIO.emit,
-    button: () => this.findByDataHook('send-button-el'),
+    form: () => this.component.find('form'),
     messageTextArea: () => this.findByDataHook('message-text-field-textarea'),
     usernameInput: () => this.findByDataHook('username-text-field-input'),
   }
