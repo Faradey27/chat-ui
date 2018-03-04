@@ -8,7 +8,8 @@
     "test": "CI=true npm run test:unit && npm run test:e2e",
     "test:unit": "react-scripts test --env=jsdom",
     "test:e2e": "webdriver-manager update && protractor",
-    "deploy": "npm run build && sh ./deploy.sh"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -28,8 +29,10 @@
       }
     }
   },
+  "homepage": "https://faradey27.github.io/chat-ui",
   "dependencies": {
     "emotion": "^9.0.2",
+    "gh-pages": "^1.1.0",
     "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
