@@ -1,3 +1,0 @@
-describe('Messages actions', () => {
-
-});

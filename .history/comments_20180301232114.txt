@@ -1,7 +1,0 @@
-I have done a lot of comments,
-please read README file, you could find it in repo or by this link https://github.com/Faradey27/chat-ui/blob/master/README.md
-
-There you will find a beautiful and short description of the project and explanation why I did some decisions.
-
-If you think that docs and readme is boring - maybe you are right, but try to read just this part - https://github.com/Faradey27/chat-ui/blob/master/README.md#design,
-about design.
