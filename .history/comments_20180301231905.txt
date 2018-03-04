@@ -1,0 +1,4 @@
+I have done a lot of comments,
+please read README file, you could find it in repo or by this link https://github.com/Faradey27/chat-ui/blob/master/README.md
+
+There you will find beatifull and short description about project and some my decitions.

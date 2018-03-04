@@ -1,0 +1,1 @@
+expprt { default } from './App';

@@ -1,0 +1,35 @@
+import React from 'react';
+import { string, func } from 'prop-types';
+import TextField from 'material-ui/TextField';
+import { css } from 'emotion';
+
+const textAreaStyles = css`
+border: 2px solid rgba(160,160,162,.7);
+  width: 100%;
+`;
+
+class MessageTextField extends React.Component {
+  static propTypes = {
+    messageText: string,
+    onMessageChange: func.isRequired,
+  }
+
+  handleMessageChange = (e) => {
+    this.props.onMessageChange(e.target.value);
+  }
+
+  render() {
+    return (
+      <div data-hook="message-text-field">
+        <textarea
+          data-hook="message-text-field-textarea"
+          className={textAreaStyles}
+          value={this.props.messageText}
+          onChange={this.handleMessageChange}
+        />
+      </div>
+    );
+  }
+}
+
+export default MessageTextField;

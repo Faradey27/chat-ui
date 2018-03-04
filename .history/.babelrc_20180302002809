@@ -1,0 +1,4 @@
+/* we require babelrc for protractor tests */
+{
+  "presets": ["babel-preset-react-app"]
+}
