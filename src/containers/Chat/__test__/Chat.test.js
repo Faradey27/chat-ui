@@ -8,6 +8,11 @@ describe('Chat', () => {
     driver = new ChatDriver();
   });
 
+  it('snapshot test', () => {
+    const tree = driver.get.snapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders without crashing', () => {
     expect(driver.when.render().is.ok()).toBeTruthy();
   });

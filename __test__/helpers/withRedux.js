@@ -4,11 +4,13 @@ import { Provider } from 'react-redux';
 import configureStore from './../../src/data/store/configureStore';
 import StorageConnector from './../../src/services/StorageConnector';
 
-const withRedux = (cleverComponent, initialStore) => {
+export const getStore = (initialStore) => {
   const storage = new StorageConnector({appName: 'chat-ui-user', storage: window.localStorage});
   const store = configureStore(initialStore || undefined, storage);
 
-  return mount(<Provider store={store}>{cleverComponent}</Provider>)
+  return store;
 }
+
+const withRedux = (cleverComponent, initialStore) => mount(<Provider store={getStore(initialStore)}>{cleverComponent}</Provider>);
 
 export default withRedux;

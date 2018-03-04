@@ -1,8 +1,10 @@
 import React from 'react';
 import { MuiThemeProvider } from 'material-ui/styles';
+import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
 import Chat from './../index';
 import SocketConnector from './../../../services/SocketConnector';
-import withRedux from './../../../../__test__/helpers/withRedux';
+import withRedux, { getStore } from './../../../../__test__/helpers/withRedux';
 
 const socketIO = {
   on: jest.fn(),
@@ -44,6 +46,14 @@ class ChatDriver {
   }
 
   get = {
+    snapshot: () => renderer.create(
+        <MuiThemeProvider>
+          <Provider store={getStore()}>
+            <Chat socket={this.socket}/>
+          </Provider>
+        </MuiThemeProvider>
+    ).toJSON(),
+
     emitMockedFunc: () => socketIO.emit,
     form: () => this.component.find('form'),
     messageTextArea: () => this.findByDataHook('message-text-field-textarea'),

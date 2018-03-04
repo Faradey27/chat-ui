@@ -18,7 +18,7 @@ describe('MessageListArea', () => {
       {id: '2', text: '456', date: 1520115176550, user: {avatar: '', name: 'user2'}},
     ];
     driver.given.initialStore({messages});
-    expect(driver.when.render().get.text()).toBe('user11230:12user24560:12');
+    expect(driver.when.render().get.text()).toBe('user112300:12user245600:12');
   });
 
   it('should scroll down when number of messages changed', () => {
@@ -27,7 +27,7 @@ describe('MessageListArea', () => {
       {id: '2', text: '456', date: 1520115176550, user: {avatar: '', name: 'user2'}},
     ];
     driver.given.initialStore({messages});
-    expect(driver.when.render().get.text()).toBe('user11230:12user24560:12');
+    expect(driver.when.render().get.text()).toBe('user112300:12user245600:12');
     expect(driver.emulateDidUpdateOnViewAndGetScrollCallback()).toBeCalled();
   });
 });

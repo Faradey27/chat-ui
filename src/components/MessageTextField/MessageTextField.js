@@ -27,7 +27,9 @@ class MessageTextField extends React.Component {
   }
 
   componentDidMount() {
-    this.inputNode.focus();
+    if (this.inputNode) {
+      this.inputNode.focus();
+    }
   }
 
   handleMessageChange = (e) => {

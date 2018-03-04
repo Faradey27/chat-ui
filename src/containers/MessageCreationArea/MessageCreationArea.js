@@ -8,7 +8,15 @@ import MessageCreationAreaView from './MessageCreationAreaView';
 import { CHAT_IDENTEFICATOR } from './../../config';
 import avatars from './../../assets/avatars';
 
-const getRandomAvatar = () => avatars[Math.floor(Math.random() * avatars.length)]
+/* istanbul ignore next */
+const getRandomAvatar = () => {
+  // to have stable snapshots, in tests we always return same avatar
+  // this code should be removed by uglify during webpack build
+  if (process.env.NODE_ENV === 'test') {
+    return avatars[0];
+  }
+  return avatars[Math.floor(Math.random() * avatars.length)];
+}
 
 class MessageCreationArea extends React.Component {
   static propTypes = {
