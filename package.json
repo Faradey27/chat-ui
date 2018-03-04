@@ -7,7 +7,8 @@
     "build": "react-scripts build",
     "test": "CI=true npm run test:unit && npm run test:e2e",
     "test:unit": "react-scripts test --env=jsdom",
-    "test:e2e": "webdriver-manager update && protractor"
+    "test:e2e": "webdriver-manager update && protractor",
+    "deploy": "npm run build && sh ./deploy.sh"
   },
   "jest": {
     "collectCoverageFrom": [
